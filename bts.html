@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi ARMY favorita 💜</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffc0cb 0%, #ffb6c1 50%, #ff91a4 100%);
+            color: #4a2e35;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Fondo dinámico con estrellitas brillantes */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 2s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 10px #fff; }
+        }
+
+        /* Lluvia de flores */
+        .falling-flowers {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .flower {
+            position: absolute;
+            top: -10%;
+            animation: fall linear infinite;
+            font-size: 22px;
+            opacity: 0.8;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0.3; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 2.2rem;
+            color: #880e4f;
+            text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8);
+            line-height: 1.2;
+        }
+
+        header h2 {
+            font-size: 1.7rem;
+            color: #ff6f00;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: -5px;
+            text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.9);
+        }
+
+        /* Tarjeta central dinámica y translúcida */
+        .card-stage {
+            position: relative;
+            width: 100%;
+            height: 420px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(136, 14, 79, 0.25);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding-bottom: 20px;
+            border: 4px solid #fff;
+            overflow: hidden;
+        }
+
+        .member-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: float 3s ease-in-out infinite;
+            z-index: 3;
+            width: 100%;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .funko-svg {
+            width: 190px;
+            height: 200px;
+            filter: drop-shadow(0 8px 12px rgba(0,0,0,0.15));
+        }
+
+        .speech-bubble {
+            background: #fff8e1;
+            color: #4e342e;
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 8px;
+            position: relative;
+            max-width: 90%;
+            border: 2px dashed #fbc02d;
+            z-index: 4;
+        }
+
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 8px 8px 0;
+            border-style: solid;
+            border-color: #fff8e1 transparent;
+            display: block;
+            width: 0;
+        }
+
+        .member-name {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #ad1457;
+            margin-top: 2px;
+            letter-spacing: 1px;
+            z-index: 4;
+        }
+
+        .controls {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        button.member-btn {
+            background: linear-gradient(135deg, #ff4081, #d81b60);
+            border: none;
+            color: white;
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(216, 27, 96, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        button.member-btn:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #ff80ab, #ff4081);
+        }
+
+        /* Caja de música optimizada para GitHub Pages */
+        .music-box {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #ff80ab;
+            padding: 10px 18px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            z-index: 3;
+        }
+
+        .music-info span {
+            display: block;
+            font-size: 0.75rem;
+            color: #666;
+        }
+
+        .music-info strong {
+            font-size: 0.85rem;
+            color: #ad1457;
+        }
+
+        .play-btn {
+            background: #ff6f00;
+            color: white;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .play-btn:hover {
+            background: #ffa000;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Estrellitas brillantes en el fondo -->
+    <div class="stars-container" id="stars"></div>
+
+    <!-- Lluvia de flores -->
+    <div class="falling-flowers">
+        <div class="flower" style="left: 10%; animation-duration: 7s; animation-delay: 0s;">🌻</div>
+        <div class="flower" style="left: 25%; animation-duration: 9s; animation-delay: 2s;">💛</div>
+        <div class="flower" style="left: 40%; animation-duration: 6s; animation-delay: 1s;">🌼</div>
+        <div class="flower" style="left: 60%; animation-duration: 8s; animation-delay: 3s;">🌻</div>
+        <div class="flower" style="left: 75%; animation-duration: 10s; animation-delay: 0s;">💛</div>
+        <div class="flower" style="left: 90%; animation-duration: 7s; animation-delay: 4s;">🌼</div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Feliz día de las</h1>
+            <h2>flores amarillas mi army</h2>
+        </header>
+
+        <div class="card-stage">
+            <div id="member-display" class="member-card">
+                <!-- Inyectado por JS -->
+            </div>
+        </div>
+
+        <div class="controls" id="member-buttons">
+            <!-- Botones de miembros -->
+        </div>
+
+        <div class="music-box">
+            <div class="music-info">
+                <span>🎵 Música romántica de fondo</span>
+                <strong>Reproducir para escuchar con volumen</strong>
+            </div>
+            <button class="play-btn" onclick="toggleAudio()" id="audio-btn">▶ Reproducir</button>
+        </div>
+    </div>
+
+    <!-- Elemento de audio nativo compatible al 100% en GitHub Pages -->
+    <audio id="bg-music" loop>
+        <source src="https://actions.google.com/sounds/v1/ambiences/night_crickets.ogg" type="audio/ogg">
+        <!-- Puedes cambiar el enlace de arriba por un archivo .mp3 tuyo en el repositorio si prefieres otra pista exacta -->
+    </audio>
+
+    <script>
+        // Generar estrellas dinámicas en el fondo
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 40; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.width = (Math.random() * 3 + 2) + 'px';
+            star.style.height = star.style.width;
+            star.style.animationDelay = (Math.random() * 2) + 's';
+            starsContainer.appendChild(star);
+        }
+
+        const members = [
+            {
+                name: "Jungkook",
+                message: "¡Para mi mayor fan! Te esperamos en octubre con todo nuestro amor 💜🐰",
+            },
+            {
+                name: "Jimin",
+                message: "¡Nuestra ARMY favorita! Nos vemos en octubre 🐥💛",
+            },
+            {
+                name: "V (Taehyung)",
+                message: "¡Feliz día para ti mi amor! Te vemos en octubre 🐻🌻",
+            },
+            {
+                name: "Suga",
+                message: "Disfruta este detalle, nos vemos en octubre 🐱💛",
+            },
+            {
+                name: "J-Hope",
+                message: "¡Eres nuestra alegría! Prepárate para octubre ☀️💐",
+            },
+            {
+                name: "Jin",
+                message: "Estas flores son para la más hermosa. ¡Nos vemos en octubre! 🐹🌹",
+            },
+            {
+                name: "RM",
+                message: "Gracias por caminar con nosotros. ¡Te esperamos en octubre! 🐨💜",
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function getYellowBouquetSVG() {
+            return `
+                <path d="M90 135 L120 195 L150 135 Z" fill="#d7ccc8" stroke="#a1887f" stroke-width="2"/>
+                <path d="M100 135 L120 180 L140 135 Z" fill="#efebe9"/>
+                <circle cx="120" cy="115" r="18" fill="#ffb300"/>
+                <circle cx="120" cy="115" r="7" fill="#3e2723"/>
+                <circle cx="100" cy="125" r="14" fill="#ffca28"/>
+                <circle cx="100" cy="125" r="5" fill="#3e2723"/>
+                <circle cx="140" cy="125" r="14" fill="#ffca28"/>
+                <circle cx="140" cy="125" r="5" fill="#3e2723"/>
+                <circle cx="120" cy="135" r="12" fill="#ffe082"/>
+                <circle cx="120" cy="135" r="4" fill="#3e2723"/>
+                <path d="M105 170 Q120 160 135 170 Q120 180 105 170 Z" fill="#ff8f00"/>
+            `;
+        }
+
+        function renderMember(index) {
+            const m = members[index];
+            const display = document.getElementById('member-display');
+            
+            display.innerHTML = `
+                <div class="speech-bubble">"${m.message}"</div>
+                <svg class="funko-svg" viewBox="0 0 240 220">
+                    <rect x="85" y="125" width="70" height="70" rx="18" fill="#fffde7" stroke="#ffe082" stroke-width="2"/>
+                    <path d="M85 135 L120 165 L155 135" stroke="#ffe082" stroke-width="3" fill="none"/>
+                    <circle cx="120" cy="75" r="46" fill="#ffebee"/>
+                    <circle cx="103" cy="72" r="5" fill="#111"/>
+                    <circle cx="137" cy="72" r="5" fill="#111"/>
+                    <path d="M74 60 Q120 10 166 60 Q170 35 155 25 Q120 5 85 25 Q70 35 74 60 Z" fill="#212121"/>
+                    <path d="M85 145 Q65 130 110 125" stroke="#fffde7" stroke-width="8" stroke-linecap="round" fill="none"/>
+                    <path d="M155 145 Q175 130 130 125" stroke="#fffde7" stroke-width="8" stroke-linecap="round" fill="none"/>
+                    ${getYellowBouquetSVG()}
+                </svg>
+                <div class="member-name">${m.name}</div>
+            `;
+        }
+
+        function initButtons() {
+            const container = document.getElementById('member-buttons');
+            members.forEach((m, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'member-btn';
+                btn.innerText = m.name;
+                btn.onclick = () => {
+                    currentIndex = idx;
+                    renderMember(currentIndex);
+                };
+                container.appendChild(btn);
+            });
+        }
+
+        renderMember(0);
+        initButtons();
+
+        // Rotar automáticamente cada 5 segundos
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % members.length;
+            renderMember(currentIndex);
+        }, 5000);
+
+        // Control de reproducción de audio garantizado para la web
+        let isPlaying = false;
+        function toggleAudio() {
+            const music = document.getElementById('bg-music');
+            const btn = document.getElementById('audio-btn');
+            if (!isPlaying) {
+                music.play();
+                btn.innerText = "⏸ Pausar";
+                isPlaying = true;
+            } else {
+                music.pause();
+                btn.innerText = "▶ Reproducir";
+                isPlaying = false;
+            }
+        }
+    </script>
+</body>
+</html>
