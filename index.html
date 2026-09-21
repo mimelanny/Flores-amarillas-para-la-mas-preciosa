@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para mi ARMY favorita 💜</title>
+    <title>Para nuestra mejor ARMY 💜</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -26,7 +26,6 @@
             position: relative;
         }
 
-        /* Fondo dinámico con estrellitas brillantes */
         .stars-container {
             position: fixed;
             top: 0;
@@ -49,7 +48,6 @@
             50% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 10px #fff; }
         }
 
-        /* Lluvia de flores */
         .falling-flowers {
             position: fixed;
             top: 0;
@@ -89,14 +87,14 @@
         header h1 {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 2.2rem;
+            font-size: 2.1rem;
             color: #880e4f;
             text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8);
             line-height: 1.2;
         }
 
         header h2 {
-            font-size: 1.7rem;
+            font-size: 1.5rem;
             color: #ff6f00;
             font-weight: 700;
             text-transform: uppercase;
@@ -105,12 +103,11 @@
             text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.9);
         }
 
-        /* Tarjeta central dinámica y translúcida */
         .card-stage {
             position: relative;
             width: 100%;
             height: 420px;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(10px);
             border-radius: 25px;
             box-shadow: 0 15px 35px rgba(136, 14, 79, 0.25);
@@ -149,13 +146,14 @@
             padding: 10px 18px;
             border-radius: 20px;
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             margin-bottom: 8px;
             position: relative;
-            max-width: 90%;
+            max-width: 92%;
             border: 2px dashed #fbc02d;
             z-index: 4;
+            line-height: 1.3;
         }
 
         .speech-bubble::after {
@@ -205,7 +203,6 @@
             background: linear-gradient(135deg, #ff80ab, #ff4081);
         }
 
-        /* Caja de música optimizada para GitHub Pages */
         .music-box {
             background: rgba(255, 255, 255, 0.9);
             border: 2px solid #ff80ab;
@@ -248,16 +245,14 @@
 </head>
 <body>
 
-    <!-- Estrellitas brillantes en el fondo -->
     <div class="stars-container" id="stars"></div>
 
-    <!-- Lluvia de flores -->
     <div class="falling-flowers">
         <div class="flower" style="left: 10%; animation-duration: 7s; animation-delay: 0s;">🌻</div>
         <div class="flower" style="left: 25%; animation-duration: 9s; animation-delay: 2s;">💛</div>
-        <div class="flower" style="left: 40%; animation-duration: 6s; animation-delay: 1s;">🌼</div>
-        <div class="flower" style="left: 60%; animation-duration: 8s; animation-delay: 3s;">🌻</div>
-        <div class="flower" style="left: 75%; animation-duration: 10s; animation-delay: 0s;">💛</div>
+        <div class="flower" style="left: 40%; animation-duration: 6s; animation-delay: 1s;">🌷</div>
+        <div class="flower" style="left: 60%; animation-duration: 8s; animation-delay: 3s;">💜</div>
+        <div class="flower" style="left: 75%; animation-duration: 10s; animation-delay: 0s;">🌹</div>
         <div class="flower" style="left: 90%; animation-duration: 7s; animation-delay: 4s;">🌼</div>
     </div>
 
@@ -268,32 +263,28 @@
         </header>
 
         <div class="card-stage">
-            <div id="member-display" class="member-card">
-                <!-- Inyectado por JS -->
-            </div>
+            <div id="member-display" class="member-card"></div>
         </div>
 
-        <div class="controls" id="member-buttons">
-            <!-- Botones de miembros -->
-        </div>
+        <div class="controls" id="member-buttons"></div>
 
         <div class="music-box">
             <div class="music-info">
-                <span>🎵 Música romántica de fondo</span>
-                <strong>Reproducir para escuchar con volumen</strong>
+                <span>🎵 Música romántica</span>
+                <strong>Haz clic para escuchar</strong>
             </div>
             <button class="play-btn" onclick="toggleAudio()" id="audio-btn">▶ Reproducir</button>
         </div>
     </div>
 
-    <!-- Elemento de audio nativo compatible al 100% en GitHub Pages -->
-    <audio id="bg-music" loop>
-        <source src="https://actions.google.com/sounds/v1/ambiences/night_crickets.ogg" type="audio/ogg">
-        <!-- Puedes cambiar el enlace de arriba por un archivo .mp3 tuyo en el repositorio si prefieres otra pista exacta -->
+    <!-- Reproductor de audio directo compatible con GitHub Pages -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="https://actions.google.com/sounds/v1/ambiences/gentle_wind_and_birds.ogg" type="audio/ogg">
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf7f6.mp3?filename=lofi-study-112191.mp3" type="audio/mp3">
+        Tu navegador no soporta audio.
     </audio>
 
     <script>
-        // Generar estrellas dinámicas en el fondo
         const starsContainer = document.getElementById('stars');
         for (let i = 0; i < 40; i++) {
             const star = document.createElement('div');
@@ -309,49 +300,74 @@
         const members = [
             {
                 name: "Jungkook",
-                message: "¡Para mi mayor fan! Te esperamos en octubre con todo nuestro amor 💜🐰",
+                message: "¡Estamos orgullosas de ti nuestra mejor obstetra! 👶💜 Te esperamos en octubre con todo nuestro amor 🌻",
+                flowerType: "yellow"
             },
             {
                 name: "Jimin",
-                message: "¡Nuestra ARMY favorita! Nos vemos en octubre 🐥💛",
+                message: "¡Gracias por ser nuestra mayor fan! Nos vemos en octubre 🐥💛",
+                flowerType: "yellow"
             },
             {
                 name: "V (Taehyung)",
-                message: "¡Feliz día para ti mi amor! Te vemos en octubre 🐻🌻",
+                message: "¡Disfruta este detalle de parte de nosotros, te amamos! 🐻🌷",
+                flowerType: "pink"
             },
             {
                 name: "Suga",
-                message: "Disfruta este detalle, nos vemos en octubre 🐱💛",
+                message: "Estas flores son para la más hermosa ARMY que tenemos 🐱💜",
+                flowerType: "purple"
             },
             {
                 name: "J-Hope",
-                message: "¡Eres nuestra alegría! Prepárate para octubre ☀️💐",
+                message: "¡Gracias por ser nuestra mayor fan! Prepárate para octubre ☀️🌹",
+                flowerType: "red"
             },
             {
                 name: "Jin",
-                message: "Estas flores son para la más hermosa. ¡Nos vemos en octubre! 🐹🌹",
+                message: "¡Disfruta este detalle de parte de nosotros, te amamos! 🐹🌸",
+                flowerType: "pink"
             },
             {
                 name: "RM",
-                message: "Gracias por caminar con nosotros. ¡Te esperamos en octubre! 🐨💜",
+                message: "Estas flores son para la más hermosa ARMY que tenemos 🐨💜",
+                flowerType: "purple"
             }
         ];
 
         let currentIndex = 0;
 
-        function getYellowBouquetSVG() {
+        function getBouquetSVG(type) {
+            let primaryColor = "#ffb300";
+            let secondaryColor = "#ffca28";
+            let accentColor = "#ff8f00";
+
+            if (type === "pink") {
+                primaryColor = "#ff4081";
+                secondaryColor = "#ff80ab";
+                accentColor = "#c51162";
+            } else if (type === "purple") {
+                primaryColor = "#ab47bc";
+                secondaryColor = "#ce93d8";
+                accentColor = "#7b1fa2";
+            } else if (type === "red") {
+                primaryColor = "#e53935";
+                secondaryColor = "#ef5350";
+                accentColor = "#b71c1c";
+            }
+
             return `
                 <path d="M90 135 L120 195 L150 135 Z" fill="#d7ccc8" stroke="#a1887f" stroke-width="2"/>
                 <path d="M100 135 L120 180 L140 135 Z" fill="#efebe9"/>
-                <circle cx="120" cy="115" r="18" fill="#ffb300"/>
+                <circle cx="120" cy="115" r="18" fill="${primaryColor}"/>
                 <circle cx="120" cy="115" r="7" fill="#3e2723"/>
-                <circle cx="100" cy="125" r="14" fill="#ffca28"/>
+                <circle cx="100" cy="125" r="14" fill="${secondaryColor}"/>
                 <circle cx="100" cy="125" r="5" fill="#3e2723"/>
-                <circle cx="140" cy="125" r="14" fill="#ffca28"/>
+                <circle cx="140" cy="125" r="14" fill="${secondaryColor}"/>
                 <circle cx="140" cy="125" r="5" fill="#3e2723"/>
-                <circle cx="120" cy="135" r="12" fill="#ffe082"/>
+                <circle cx="120" cy="135" r="12" fill="${accentColor}"/>
                 <circle cx="120" cy="135" r="4" fill="#3e2723"/>
-                <path d="M105 170 Q120 160 135 170 Q120 180 105 170 Z" fill="#ff8f00"/>
+                <path d="M105 170 Q120 160 135 170 Q120 180 105 170 Z" fill="${accentColor}"/>
             `;
         }
 
@@ -370,44 +386,42 @@
                     <path d="M74 60 Q120 10 166 60 Q170 35 155 25 Q120 5 85 25 Q70 35 74 60 Z" fill="#212121"/>
                     <path d="M85 145 Q65 130 110 125" stroke="#fffde7" stroke-width="8" stroke-linecap="round" fill="none"/>
                     <path d="M155 145 Q175 130 130 125" stroke="#fffde7" stroke-width="8" stroke-linecap="round" fill="none"/>
-                    ${getYellowBouquetSVG()}
+                    ${getBouquetSVG(m.flowerType)}
                 </svg>
                 <div class="member-name">${m.name}</div>
             `;
         }
 
-        function initButtons() {
-            const container = document.getElementById('member-buttons');
-            members.forEach((m, idx) => {
-                const btn = document.createElement('button');
-                btn.className = 'member-btn';
-                btn.innerText = m.name;
-                btn.onclick = () => {
-                    currentIndex = idx;
-                    renderMember(currentIndex);
-                };
-                container.appendChild(btn);
-            });
-        }
+        const buttonsContainer = document.getElementById('member-buttons');
+        members.forEach((m, idx) => {
+            const btn = document.createElement('button');
+            btn.className = 'member-btn';
+            btn.innerText = m.name;
+            btn.onclick = () => {
+                currentIndex = idx;
+                renderMember(currentIndex);
+            };
+            buttonsContainer.appendChild(btn);
+        });
 
         renderMember(0);
-        initButtons();
 
-        // Rotar automáticamente cada 5 segundos
         setInterval(() => {
             currentIndex = (currentIndex + 1) % members.length;
             renderMember(currentIndex);
         }, 5000);
 
-        // Control de reproducción de audio garantizado para la web
         let isPlaying = false;
         function toggleAudio() {
             const music = document.getElementById('bg-music');
             const btn = document.getElementById('audio-btn');
             if (!isPlaying) {
-                music.play();
-                btn.innerText = "⏸ Pausar";
-                isPlaying = true;
+                music.play().then(() => {
+                    btn.innerText = "⏸ Pausar";
+                    isPlaying = true;
+                }).catch(e => {
+                    alert("Haz clic una vez más en el botón para activar el audio.");
+                });
             } else {
                 music.pause();
                 btn.innerText = "▶ Reproducir";
